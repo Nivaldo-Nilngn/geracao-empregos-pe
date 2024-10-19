@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geração de Empregos PE - Cadastro</title>
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <link rel="stylesheet" href="./src/css/loader.css">
+
+    <link rel="shortcut icon" href="../img/Logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header com logo e navegação -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="./src/img/logo.png" alt="Geração de Empregos PE">
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Início</a></li>
+                <li><a href="./sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Geração de Empregos PE</h1>
+        <p>Chegou a sua oportunidade que você esperava para dar um passo importante rumo à sua carreira profissional.
+            Nosso projeto disponibilizará vagas para crianças, jovens e adultos de Pernambuco que desejam qualificar-se
+            profissionalmente.</p>
+
+        <form id="cadastro-form" name="geracaoEmpregosPe" class="formEntrada"
+            onkeydown="if (event.keyCode == 13) return false;">
+            <!-- Formulário -->
+            <div class="nomeInput">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="Nome" placeholder="Digite seu nome" required>
+            </div>
+            <div class="telefoneInput">
+                <label for="telefone">Telefone (DDD + número)</label>
+                <input type="tel" id="telefone" name="Telefone" placeholder="Digite seu telefone" required
+                    pattern="^\d{2} \d{5}-\d{4}$" title="Formato: 00 90000-0000">
+            </div>
+
+            <label for="idade">Idade?</label>
+            <input type="number" id="idade" name="Idade" placeholder="Digite sua idade" required>
+
+            <label for="area-interesse">Área de Interesse</label>
+            <select id="area-interesse" name="area-interesse" required>
+                <option value="" disabled selected>Selecione a área</option>
+                <option value="assistente-administrativo">Assistente Administrativo</option>
+                <option value="empreendedorismo">Empreendedorismo</option>
+                <option value="informatica-operacional">Informática Operacional</option>
+                <option value="analista-contabil-financeiro">Analista Contábil e Financeiro</option>
+                <option value="gestao-pessoas">Gestão de Pessoas</option>
+                <option value="montagem-manutencao-computadores">Montagem e Manutenção de Computadores</option>
+                <option value="supervisor-vendas">Supervisor de Vendas</option>
+                <option value="excel-avancado">Excel Avançado</option>
+                <option value="atendente-farmacia">Atendente de Farmácia</option>
+                <option value="secretariado">Secretariado</option>
+                <option value="operador-caixa">Operador de Caixa</option>
+                <option value="pacote-office">Pacote Office Completo</option>
+                <option value="programacao">Programação</option>
+                <option value="web-designer">Web Designer</option>
+                <option value="designer-grafico">Designer Gráfico</option>
+                <option value="logistica">Logística</option>
+                <option value="seguranca-trabalho">Segurança do Trabalho</option>
+                <option value="informatica-kids">Informática Kids</option>
+                <option value="ingles-ead">Inglês EAD</option>
+                <option value="gastronomia-ead">Gastronomia EAD</option>
+                <option value="auxiliar-petshop-ead">Auxiliar de Petshop EAD</option>
+                <option value="cuidador-idosos-ead">Cuidador de Idosos EAD</option>
+            </select>
+
+
+
+            <label for="cidade">Cidade onde mora?</label>
+            <input type="text" id="cidade" name="Cidade" placeholder="Digite sua cidade" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+
+    <!-- Footer simples -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Geração de Empregos PE | Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="./src/js/script.js"></script>
+    <script src="./src/js/index.js"></script>
+    <script src="./src/js/api.js"></script>
+</body>
+
+</html>
