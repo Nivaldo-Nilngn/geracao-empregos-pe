@@ -1,4 +1,4 @@
-const api = "https://script.google.com/macros/s/AKfycbzFShvjvkluL0OEGk2bSidcSymKgfafOqOz_9KuPqacejM0letEyyYAIRfURMywQpTP9g/exec"; // URL da API para onde os dados serão enviados
+const api = "https://script.google.com/macros/s/AKfycbxFJJCEtxPY0BuuMkAkaSoydYwsM7aziwu9IRygJSmOV2HKr8MGaHVIKC7Wxq213M2r/exec"; // URL da API para onde os dados serão enviados
 
 const reloadDiv = document.createElement("div");
 reloadDiv.classList.add("reload");
@@ -54,7 +54,6 @@ formElemento.addEventListener("submit", (event) => {
         return;
     }
 
-    // Certifique-se de que o valor está sendo corretamente lido
     if (!areaInteresseInput.value) {
         showAlert("Por favor, selecione uma área de interesse");
         return;
@@ -65,25 +64,37 @@ formElemento.addEventListener("submit", (event) => {
         return;
     }
 
-    const formData = new FormData(formElemento);
-    reloadDiv.style.display = "flex"; // Mostra o indicador de carregamento
+    // Cria um objeto Date para capturar a data e a hora atuais
+    const now = new Date();
+    const formattedDateTime = now.toLocaleString(); // Formata a data e hora para algo legível (ex: 20/10/2024, 14:30:00)
 
+    // Adiciona os dados do formulário ao FormData
+    const formData = new FormData(formElemento);
+    
+    // Adiciona a data e a hora ao FormData
+    formData.append("Data-hora", formattedDateTime);
+
+    // Exibe o indicador de carregamento
+    reloadDiv.style.display = "flex"; 
+
+    // Envia os dados para a API
     fetch(api, {
         method: "POST",
         body: formData,
     })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Erro ao enviar os dados");
-            }
-            console.log(`Dados enviados com sucesso`);
-            window.location.href = "./src/html/sucesso.html";
-        })
-        .catch((error) => {
-            console.error("Ocorreu um erro ao enviar os dados:", error);
-            window.location.href = "./src/html/found404.html";
-        })
-        .finally(() => {
-            reloadDiv.style.display = "none"; // Esconde o indicador de carregamento
-        });
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("Erro ao enviar os dados");
+        }
+        console.log(`Dados enviados com sucesso`);
+        window.location.href = "./src/html/sucesso.html";
+    })
+    .catch((error) => {
+        console.error("Ocorreu um erro ao enviar os dados:", error);
+        window.location.href = "./src/html/found404.html";
+    })
+    .finally(() => {
+        // Esconde o indicador de carregamento
+        reloadDiv.style.display = "none"; 
+    });
 });

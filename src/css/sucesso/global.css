@@ -31,5 +31,167 @@
 
   --rubik: 'Rubik', 'Inter', sans-serif;
   --inter: 'Inter', sans-serif;
-  --pop : 'Poppins', sans-serif;
+  --pop: 'Poppins', sans-serif;
+}
+
+main {
+  padding-bottom: 100px;
+  position: relative;
+}
+
+header {
+  display: block;
+  background: var(--black-A2);
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo img {
+  width: 60px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 15px;
+}
+
+.nav-links a {
+  color: #f4f4f4;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #0077ff;
+}
+
+/* Menu para mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    right: 0;
+    top: 60px;
+    background-color: #1e1e1e;
+    height: 22vh;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 99;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    /* Espaçamento entre itens no mobile */
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Efeito de abrir o menu */
+  .menu-open {
+    transform: translateX(0);
+    /* Mostra o menu */
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+    /* Primeiro span vira uma linha */
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    /* Oculta o segundo span */
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+    /* Terceiro span vira uma linha */
+  }
+}
+
+.mediaResponsivo {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.mediaResponsivo a {
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  gap: 0 20px;
+  padding: .5rem 0;
+  color: var(--black-E3);
+}
+
+.containerSucesso {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  align-items: center;
+}
+
+.sucesso {
+  display: block;
+  padding: 2rem;
+  background: var(--black-A1);
+  font-weight: 500;
+  color: var(--black-D1);
+  text-align: center;
+  text-transform: uppercase;
+  font-family: var(--rubik);
+  font-size: 2.5rem;
+  margin: auto;
+  border-radius: 4px;
+  max-width: 600px;
+  border: solid 1px var(--black-D1);
+}
+
+/* Estilos para o footer simples */
+footer {
+  background-color: #1e1e1e;
+  color: #f4f4f4;
+  text-align: center;
+  padding: 15px;
+  border-top: 3px solid #0077ff;
+}
+
+footer .footer-content p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 0;
 }
